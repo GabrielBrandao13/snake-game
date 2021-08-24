@@ -3,7 +3,7 @@ import { Snake } from './Snake.js'
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
-const snake = new Snake()
+const snake = new Snake({ x: canvas.width, y: canvas.height })
 
 function onKeyDown(e) {
     snake[e.key]()
