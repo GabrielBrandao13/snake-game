@@ -1,24 +1,16 @@
 class Snake {
-    x = 75
-    y = 75
+    x = 25
+    y = 25
 
-    width = 5
-    height = 5
-
-    pos = {
-        x: 75,
-        y: 75
-    }
-    size = {
-        width: 5,
-        height: 5
-    }
+    speed = 4
 
     direction = [0, 0]
 
     constructor(limits) {
         this.limits = limits
     }
+
+    tail = []
 
     ArrowUp() {
         this.direction = [0, -1]
@@ -33,7 +25,13 @@ class Snake {
         this.direction = [1, 0]
     }
 
-    loop() {
+    move() {
+        this.checkForBorderCollision()
+        this.x += this.direction[0]
+        this.y += this.direction[1]
+    }
+
+    checkForBorderCollision() {
         if (this.x > this.limits.x) {
             this.x = 0
         } else if (this.x < 0) {
@@ -43,9 +41,6 @@ class Snake {
         } else if (this.y < 0) {
             this.y = this.limits.y
         }
-
-        this.x += this.direction[0]
-        this.y += this.direction[1]
     }
 
 }

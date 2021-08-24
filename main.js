@@ -5,21 +5,38 @@ const ctx = canvas.getContext('2d')
 
 const snake = new Snake({ x: canvas.width, y: canvas.height })
 
+var currentFruit = { x: 30, y: 30 }
+
+function setNewFruitLocation() {
+    let randX = Math.floor(Math.random() * canvas.width),
+        randY = Math.floor(Math.random() * canvas.height)
+    currentFruit.x = randX
+    currentFruit.y = randY
+
+}
+
 function onKeyDown(e) {
     snake[e.key]()
 }
 
 function drawObject(object) {
-    ctx.fillRect(object.x, object.y, object.width, object.height)
+    ctx.fillRect(object.x, object.y, 1, 1)
 }
 
-function loop() {
+function frames() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    snake.loop()
     drawObject(snake)
-    requestAnimationFrame(loop)
+    drawObject(currentFruit)
+    requestAnimationFrame(frames)
+}
+
+function playerMove() {
+    snake.move()
+    setTimeout(playerMove, 1000 / snake.speed)
 }
 
 
+playerMove()
 window.addEventListener('keydown', onKeyDown)
-loop()
+window.addEventListener('click', () => setNewFruitLocation())
+frames()
