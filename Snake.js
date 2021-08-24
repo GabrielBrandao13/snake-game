@@ -1,4 +1,9 @@
 class Snake {
+    x = 75
+    y = 75
+
+    width = 5
+    height = 5
 
     pos = {
         x: 75,
@@ -29,18 +34,18 @@ class Snake {
     }
 
     loop() {
-        if (this.pos.x > this.limits.x) {
-            this.pos.x = 0
-        } else if (this.pos.x < 0) {
-            this.pos.x = this.limits.x
-        } else if (this.pos.y > this.limits.y) {
-            this.pos.y = 0
-        } else if (this.pos.y < 0) {
-            this.pos.y = this.limits.y
+        if (this.x > this.limits.x) {
+            this.x = 0
+        } else if (this.x < 0) {
+            this.x = this.limits.x
+        } else if (this.y > this.limits.y) {
+            this.y = 0
+        } else if (this.y < 0) {
+            this.y = this.limits.y
         }
 
-        this.pos.x += this.direction[0]
-        this.pos.y += this.direction[1]
+        this.x += this.direction[0]
+        this.y += this.direction[1]
     }
 
 }

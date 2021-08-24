@@ -10,7 +10,7 @@ function onKeyDown(e) {
 }
 
 function drawObject(object) {
-    ctx.fillRect(object.pos.x, object.pos.y, object.size.width, object.size.height)
+    ctx.fillRect(object.x, object.y, object.width, object.height)
 }
 
 function loop() {
