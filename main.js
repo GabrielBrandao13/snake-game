@@ -50,9 +50,6 @@ function checkForFruitCollision() {
 
 
 window.addEventListener('keydown', onKeyDown)
-window.addEventListener('click', () => {
-    snake.grow()
-})
 
 frames()
 playerMove()

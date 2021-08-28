@@ -13,16 +13,24 @@ class Snake {
     tail = []
 
     ArrowUp() {
-        this.direction = [0, -1]
+        if (!this.direction[1]) {
+            this.direction = [0, -1]
+        }
     }
     ArrowDown() {
-        this.direction = [0, 1]
+        if (!this.direction[1]) {
+            this.direction = [0, 1]
+        }
     }
     ArrowLeft() {
-        this.direction = [-1, 0]
+        if (!this.direction[0]) {
+            this.direction = [-1, 0]
+        }
     }
     ArrowRight() {
-        this.direction = [1, 0]
+        if (!this.direction[0]) {
+            this.direction = [1, 0]
+        }
     }
 
     move() {
