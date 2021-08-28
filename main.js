@@ -26,6 +26,9 @@ function drawObject(object) {
 function frames() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawObject(snake)
+    for (let block of snake.tail) {
+        drawObject(block)
+    }
     drawObject(currentFruit)
     requestAnimationFrame(frames)
 }
@@ -36,7 +39,10 @@ function playerMove() {
 }
 
 
-playerMove()
 window.addEventListener('keydown', onKeyDown)
-window.addEventListener('click', () => setNewFruitLocation())
+window.addEventListener('click', () => {
+    snake.grow()
+})
+
 frames()
+playerMove()
