@@ -7,12 +7,13 @@ const snake = new Snake({ x: canvas.width, y: canvas.height })
 
 var currentFruit = { x: 30, y: 30 }
 
+let score = 0
+
 function setNewFruitLocation() {
     let randX = Math.floor(Math.random() * canvas.width),
         randY = Math.floor(Math.random() * canvas.height)
     currentFruit.x = randX
     currentFruit.y = randY
-
 }
 
 function onKeyDown(e) {
@@ -35,7 +36,16 @@ function frames() {
 
 function playerMove() {
     snake.move()
+    checkForFruitCollision()
     setTimeout(playerMove, 1000 / snake.speed)
+}
+
+function checkForFruitCollision() {
+    if (snake.x == currentFruit.x && snake.y == currentFruit.y) {
+        setNewFruitLocation()
+        snake.grow()
+        score++
+    }
 }
 
 

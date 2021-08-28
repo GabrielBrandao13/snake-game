@@ -2,7 +2,7 @@ class Snake {
     x = 25
     y = 25
 
-    speed = 4
+    speed = 6
 
     direction = [1, 0]
 
