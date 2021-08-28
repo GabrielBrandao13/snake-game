@@ -72,6 +72,16 @@ class Snake {
         })
     }
 
+    onCollisionWithTail(exec) {
+        for (let i of this.tail) {
+            if (i.x == this.x && i.y == this.y) {
+                exec()
+                this.tail = []
+                break
+            }
+        }
+    }
+
 }
 
 export { Snake }
