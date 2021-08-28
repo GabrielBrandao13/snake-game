@@ -35,6 +35,7 @@ function frames() {
 }
 
 function playerMove() {
+    snake.speed = 6 + score / 2
     checkForBorderCollision()
     snake.move()
     checkForFruitCollision()
@@ -51,7 +52,6 @@ function checkForFruitCollision() {
         setNewFruitLocation()
         snake.grow()
         score++
-        snake.speed += .2
     }
 }
 
