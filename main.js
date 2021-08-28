@@ -17,7 +17,7 @@ function setNewFruitLocation() {
 }
 
 function onKeyDown(e) {
-    snake[e.key]()
+    snake[e.key] ? snake[e.key]() : ''
 }
 
 function drawObject(object) {
