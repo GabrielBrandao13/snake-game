@@ -3,7 +3,7 @@ import { Snake } from './Snake.js'
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
-const snake = new Snake({ x: canvas.width, y: canvas.height })
+const snake = new Snake()
 
 var currentFruit = { x: 30, y: 30 }
 
@@ -17,7 +17,7 @@ function setNewFruitLocation() {
 }
 
 function onKeyDown(e) {
-    snake[e.key] ? snake[e.key]() : ''
+    snake[e.key] && snake[e.key]()
 }
 
 function drawObject(object) {
@@ -35,6 +35,7 @@ function frames() {
 }
 
 function playerMove() {
+    checkForBorderCollision()
     snake.move()
     checkForFruitCollision()
     snake.onCollisionWithTail(reset)
@@ -51,6 +52,18 @@ function checkForFruitCollision() {
         snake.grow()
         score++
         snake.speed += .2
+    }
+}
+
+function checkForBorderCollision() {
+    if (snake.x > canvas.width) {
+        snake.x = 0
+    } else if (snake.x < 0) {
+        snake.x = canvas.width
+    } else if (snake.y > canvas.height) {
+        snake.y = 0
+    } else if (snake.y < 0) {
+        snake.y = canvas.height
     }
 }
 
