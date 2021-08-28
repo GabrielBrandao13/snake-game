@@ -1,6 +1,7 @@
 class Snake {
     x = 25
     y = 25
+    color = '#202020'
 
     speed = 6
 
@@ -49,7 +50,8 @@ class Snake {
 
         this.tail.push({
             x,
-            y
+            y,
+            color: this.color
         })
     }
 

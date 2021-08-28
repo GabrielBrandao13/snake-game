@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d')
 
 const snake = new Snake()
 
-var currentFruit = { x: 30, y: 30 }
+var currentFruit = { x: 30, y: 30, color: '#ffffff' }
 
 var score = 0
 
@@ -21,11 +21,13 @@ function onKeyDown(e) {
 }
 
 function drawObject(object) {
+    ctx.fillStyle = object.color
     ctx.fillRect(object.x, object.y, 1, 1)
 }
 
 function frames() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.fillStyle = '#0a450f'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
     drawObject(snake)
     for (let block of snake.tail) {
         drawObject(block)
