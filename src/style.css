@@ -1,7 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 body{
     display:flex;
     align-items:center;
     justify-content: center;
+}
+
+.screen{
+    display:flex;
+    flex-flow: row nowrap;
+}
+
+.side-menu{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items:center;
+    justify-content:flex-start;
+    width: 200px;
+    padding: 5px;
+    background-color: rgb(24, 24, 24);
+    color:white;
+    font-family: 'VT323';
+}
+
+h1{
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+p{
+    font-size: 15pt;
+    margin: 5px;
+}
+
+.score-wrapper p{
+    margin:0;
+}
+
+.score-wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items:center;
+    width: 80%;
+}
+
+.score, .best-score{
+    font-size: 25pt;
 }
 
 canvas{

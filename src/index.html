@@ -10,7 +10,26 @@
 </head>
 
 <body>
-    <canvas width="50" height="50"></canvas>
+    <div class="screen">
+        <div class="side-menu">
+            <div class="score-wrapper">
+                <p>Pontuação: </p>
+                <span class="score"></span>
+            </div>
+            <div class="score-wrapper">
+                <p>Melhor pontuação: </p>
+                <span class="best-score"></span>
+            </div>
+            <h1>Snake Game</h1>
+            <p>
+                Use as setas do teclado para se mover. O objetivo é comer as frutas espalhadas pelo mapa e ficar
+                cada vez maior.
+            </p>
+            <p>Seu progresso é perdido caso colida com a própria calda.</p>
+        </div>
+        <canvas width="50" height="50"></canvas>
+    </div>
+
     <script src="./Snake.js" type="module"></script>
     <script type="module" src="./main.js"></script>
 </body>

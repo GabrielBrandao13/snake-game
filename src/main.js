@@ -2,12 +2,24 @@ import { Snake } from './Snake.js'
 
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
+const displayScore = document.querySelector('span.score')
+const bestScoreDisplay = document.querySelector('span.best-score')
 
 const snake = new Snake()
 
 var currentFruit = { x: 30, y: 30, color: '#ffffff' }
 
 var score = 0
+
+function getBestScore() {
+    return Number(localStorage.getItem('best-score'))
+}
+function setBestScore() {
+    const bestScore = getBestScore()
+    if (score > bestScore || !bestScore) {
+        localStorage.setItem('best-score', `${score}`)
+    }
+}
 
 function setNewFruitLocation() {
     let randX = Math.floor(Math.random() * canvas.width),
@@ -33,6 +45,7 @@ function frames() {
         drawObject(block)
     }
     drawObject(currentFruit)
+    displayScore.textContent = score
     requestAnimationFrame(frames)
 }
 
@@ -46,6 +59,8 @@ function playerMove() {
 }
 
 function reset() {
+    setBestScore()
+    bestScoreDisplay.textContent = getBestScore()
     score = 0
 }
 
@@ -69,8 +84,14 @@ function checkForBorderCollision() {
     }
 }
 
+function start() {
 
-window.addEventListener('keydown', onKeyDown)
+    window.addEventListener('keydown', onKeyDown)
 
-frames()
-playerMove()
+    frames()
+    playerMove()
+    bestScoreDisplay.textContent = getBestScore()
+}
+start()
+
+
