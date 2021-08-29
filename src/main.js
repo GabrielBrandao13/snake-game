@@ -90,6 +90,7 @@ function start() {
 
     frames()
     playerMove()
+    setNewFruitLocation()
     bestScoreDisplay.textContent = getBestScore()
 }
 start()
