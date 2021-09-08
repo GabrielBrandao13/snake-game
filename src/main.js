@@ -26,6 +26,14 @@ function setNewFruitLocation() {
         randY = Math.floor(Math.random() * canvas.height)
     currentFruit.x = randX
     currentFruit.y = randY
+    checkForFruitCollisionWithTail()
+}
+
+function checkForFruitCollisionWithTail() {
+    if (snake.tail.some(tail => tail.x == currentFruit.x && tail.y == currentFruit.y)) {
+        setNewFruitLocation()
+    }
+
 }
 
 function onKeyDown(e) {
@@ -84,6 +92,7 @@ function checkForBorderCollision() {
     }
 }
 
+
 function start() {
 
     window.addEventListener('keydown', onKeyDown)
@@ -93,6 +102,7 @@ function start() {
     setNewFruitLocation()
     bestScoreDisplay.textContent = getBestScore()
 }
+
 start()
 
 
